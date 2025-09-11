@@ -5,12 +5,11 @@ public class BirdMovement : MonoBehaviour
 {
     public float jumpSpeed;
     public float movementSpeed;
-    private Rigidbody rb;
+    public Rigidbody player;
     private Vector3 movement;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
     }
 
 
@@ -22,11 +21,11 @@ public class BirdMovement : MonoBehaviour
 
     void OnJump()
     {
-        rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+        player.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
     }
 
     void FixedUpdate()
     {
-        rb.AddForce(movement * movementSpeed);
+        player.AddForce(movement * movementSpeed);
     }
 }
