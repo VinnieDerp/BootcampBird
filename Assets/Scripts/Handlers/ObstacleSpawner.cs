@@ -4,10 +4,11 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject obstaclePrefab;
-    public List<GameObject> spawnedObstacles = new List<GameObject>();
     public float obstacleSpeed;
     public float timerLength;
     private float timer;
+    private List<GameObject> spawnedObstacles = new List<GameObject>();
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
