@@ -14,14 +14,8 @@ public class ObstacleSpawner : MonoBehaviour
         timer = timerLength / 2;
         spawnedObstacles.Clear();
 
-        for (int i = 0; i < 6; i++)
-        {
-            Vector3 randomPosition = new Vector3(Random.Range(-4, 4), Random.Range(-4, 4), transform.position.z - i * timerLength * obstacleSpeed);
-            Quaternion randomRotation = new Quaternion(0, 0, 100, Random.Range(0, 360));
-            GameObject spawnedObstacle = Instantiate(obstaclePrefab, randomPosition, randomRotation, transform);
-            spawnedObstacles.Add(spawnedObstacle);
-            Debug.Log("Starting obstacles spawned");
-        }
+        SpawnObstacles(3);
+        Debug.Log("Starting obstacles spawned");
     }
 
     // Update is called once per frame
@@ -30,12 +24,7 @@ public class ObstacleSpawner : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= timerLength)
         {
-            Vector3 randomPosition = new Vector3(Random.Range(-4, 4), Random.Range(-4, 4), transform.position.z);
-            Quaternion randomRotation = new Quaternion(0, 0, 100, Random.Range(0, 360));
-            GameObject spawnedObstacle = Instantiate(obstaclePrefab, randomPosition, randomRotation, transform);
-            spawnedObstacles.Add(spawnedObstacle);
-            Debug.Log("Obstacle spawned");
-            timer = 0;
+            SpawnObstacles(1);
         }
 
         foreach (GameObject obstacle in spawnedObstacles)
@@ -43,9 +32,34 @@ public class ObstacleSpawner : MonoBehaviour
             obstacle.transform.position -= new Vector3(0, 0, obstacleSpeed * Time.deltaTime);
             if (obstacle.transform.position.z < -1)
             {
-                spawnedObstacles.Remove(obstacle);
-                Destroy(obstacle);
+                RemoveObstacle(obstacle);
             }
         }
     }
+    void SpawnObstacles(int spawnAmount)
+    {
+        for (int i = 0; i < spawnAmount; i++)
+        {
+            int randomGap = Random.Range(0, 8);
+
+            for (int j = 0; j < 9; j++)
+            {
+                if (j == randomGap) continue;
+
+                Vector3 spawnPosition = new Vector3(j / 3 * 3 - 3f, j % 3 * 3 - 3f, transform.position.z - i * timerLength * obstacleSpeed);
+                GameObject spawnedObstacle = Instantiate(obstaclePrefab, spawnPosition, transform.rotation, transform);
+                spawnedObstacles.Add(spawnedObstacle);
+                Debug.Log("Obstacle spawned");
+                timer = 0;
+            }
+            
+        }
+    }
+
+    void RemoveObstacle(GameObject obstacle)
+    {
+        spawnedObstacles.Remove(obstacle);
+        Destroy(obstacle);
+    }
+
 }
