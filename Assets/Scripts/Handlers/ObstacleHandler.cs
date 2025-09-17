@@ -3,14 +3,11 @@ using UnityEngine;
 
 public class ObstacleHandler : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _obstaclePrefab;
-    [SerializeField]
-    private GameHandler _gameHandler;
-    [SerializeField]
-    private float obstacleSpeed;
-    [SerializeField]
-    private float timerLength;
+    [SerializeField]    private GameObject _obstaclePrefab;
+    [SerializeField]    private GameHandler _gameHandler;
+    [SerializeField]    private AudioHandler _audioHandler;
+    [SerializeField]    private float obstacleSpeed;
+    [SerializeField]    private float timerLength;
     private float timer;
     private List<GameObject> spawnedObstacles = new List<GameObject>();
 
@@ -30,6 +27,7 @@ public class ObstacleHandler : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= timerLength)
         {
+            _audioHandler.PlaySFX(_audioHandler.scoreUp);
             SpawnObstacles(1);
         }
 
@@ -37,7 +35,7 @@ public class ObstacleHandler : MonoBehaviour
         {
             GameObject obstacle = spawnedObstacles[i];
             obstacle.transform.position -= new Vector3(0, 0, obstacleSpeed * Time.deltaTime);
-            if (obstacle.transform.position.z < -obstacle.transform.localScale.z)
+            if (obstacle.transform.position.z < -1)
             {
                 RemoveObstacle(obstacle);
             }

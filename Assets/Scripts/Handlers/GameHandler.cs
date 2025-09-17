@@ -3,13 +3,13 @@ using UnityEngine.UIElements;
 
 public class GameHandler : MonoBehaviour
 {
-    [SerializeField]
-    private GameOverHandler _gameOverHandler;
+    [SerializeField]    private GameOverHandler _gameOverHandler;
+    [SerializeField]    private AudioHandler _audioHandler;
     public UIDocument _uiDocument;
     private Label _scoreLabel;
     private Label _highScoreLabel;
-    [SerializeField]
-    private int _highScore;
+    private bool _playHighScoreSound;
+    [SerializeField]    private int _highScore;
     public int _score;
 
 
@@ -25,6 +25,8 @@ public class GameHandler : MonoBehaviour
 
         _highScore = PlayerPrefs.GetInt("HighScore", 0);
         _score = 0;
+
+        _playHighScoreSound = true;
     }
 
     // Update is called once per frame
@@ -35,6 +37,12 @@ public class GameHandler : MonoBehaviour
         if (_score > _highScore)
         {
             _highScore = _score;
+            if (_playHighScoreSound)
+            {
+                _audioHandler.PlaySFX(_audioHandler.highScoreUp);
+                _audioHandler.PlaySFX(_audioHandler.applaud);
+                _playHighScoreSound = false;
+            }
         }
 
         _scoreLabel.text = "Score: " + _score.ToString();
@@ -48,7 +56,6 @@ public class GameHandler : MonoBehaviour
         Debug.Log("Game Over!");
         Time.timeScale = 0;
         gameObject.SetActive(false);
-        //_gameOverHandler.enabled = true;
         _gameOverHandler.gameObject.SetActive(true);
     }
 }

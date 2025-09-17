@@ -3,10 +3,8 @@ using UnityEngine.UIElements;
 
 public class MainMenuHandler : MonoBehaviour
 {
-    [SerializeField]
-    private GameHandler _gameHandler;
-    [SerializeField]
-    private GameOverHandler _gameOverHandler;
+    [SerializeField]    private GameHandler _gameHandler;
+    [SerializeField]    private GameOverHandler _gameOverHandler;
     private UIDocument _uiDocument;
     private Button _startButton;
     private Label _highScoreLabel;

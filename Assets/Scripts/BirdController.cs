@@ -3,14 +3,11 @@ using UnityEngine.InputSystem;
 
 public class BirdMovement : MonoBehaviour
 {
-    [SerializeField]
-    private ObstacleHandler _obstacleSpawner;
-    [SerializeField]
-    private GameHandler _gameHandler;
-    [SerializeField]
-    private float jumpSpeed;
-    [SerializeField]
-    private float movementSpeed;
+    [SerializeField]    private ObstacleHandler _obstacleSpawner;
+    [SerializeField]    private GameHandler _gameHandler;
+    [SerializeField]    private AudioHandler _audioHandler;
+    [SerializeField]    private float jumpSpeed;
+    [SerializeField]    private float movementSpeed;
     private Rigidbody rb;
     private Vector3 movement;
     private bool allowJump;
@@ -33,6 +30,8 @@ public class BirdMovement : MonoBehaviour
     {
         if (Time.timeScale == 0 || !allowJump) return;
         rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+        
+        _audioHandler.PlaySFX(_audioHandler.birdFlap);
     }
 
     void FixedUpdate()
@@ -54,6 +53,8 @@ public class BirdMovement : MonoBehaviour
             _obstacleSpawner.enabled = false;
             enabled = false;
             rb.isKinematic = true;
+
+            _audioHandler.PlaySFX(_audioHandler.gameOver);
             _gameHandler.EndGame();
         }
     }

@@ -4,8 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverHandler : MonoBehaviour
 {
-    [SerializeField]
-    private GameHandler _gameHandler;
+    [SerializeField]    private GameHandler _gameHandler;
     private UIDocument _uiDocument;
     private Button _restartButton;
     private Label _scoreLabel;
