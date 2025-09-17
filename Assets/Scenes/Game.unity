@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &148258776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 148258777}
+  m_Layer: 0
+  m_Name: PostProcessing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &148258777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148258776}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4165351, y: -1.8172163, z: -2.887318}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &158796327
 GameObject:
   m_ObjectHideFlags: 0
@@ -6433,8 +6464,8 @@ MonoBehaviour:
   gameOver: {fileID: 8300000, guid: 970be1e976d96fc4eaf1e674fa08a39a, type: 3}
   birdFlap: {fileID: 8300000, guid: aeb11e469fb8e4a4b903d59bc89aefcc, type: 3}
   scoreUp: {fileID: 8300000, guid: f50d768b151f905419acaecab8d6ed22, type: 3}
-  highScoreUp: {fileID: 0}
-  applaud: {fileID: 0}
+  highScoreUp: {fileID: 8300000, guid: 909d3a2e1b7ddb045812457f0e046e48, type: 3}
+  applaud: {fileID: 8300000, guid: 6e3ad18ccf3b46645a80392413e798ef, type: 3}
 --- !u!1 &1930420021
 GameObject:
   m_ObjectHideFlags: 0
@@ -6709,3 +6740,4 @@ SceneRoots:
   - {fileID: 1678318325}
   - {fileID: 418422103}
   - {fileID: 660725599}
+  - {fileID: 148258777}
