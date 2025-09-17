@@ -1,54 +1,40 @@
-.header {
+.score {
     align-self: center;
     font-size: 66px;
-    color: rgb(0, 255, 255);
     -unity-font-style: normal;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    top: 20px;
+    top: 50px;
+    color: rgb(0, 255, 255);
     -unity-font-definition: url("project://database/Assets/Fonts/MotleyForces.ttf?fileID=12800000&guid=f8bddbd5d1b3b3b408e2cfdc14299f7f&type=3#MotleyForces");
     -unity-text-outline-width: 5px;
     letter-spacing: 5px;
-    word-spacing: 5px;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
     -unity-text-outline-color: rgb(0, 0, 0);
 }
 
 .highscore {
-    top: 500px;
-    font-size: 66px;
     align-self: center;
     -unity-font-style: normal;
+    font-size: 66px;
+    top: 100px;
     color: rgb(0, 255, 255);
     -unity-font-definition: url("project://database/Assets/Fonts/MotleyForces.ttf?fileID=12800000&guid=f8bddbd5d1b3b3b408e2cfdc14299f7f&type=3#MotleyForces");
     -unity-text-outline-width: 5px;
     letter-spacing: 5px;
-    word-spacing: 5px;
     -unity-text-outline-color: rgb(0, 0, 0);
 }
 
 .button {
-    top: 555px;
-    width: auto;
-    -unity-text-align: upper-left;
-    align-self: center;
+    position: relative;
+    bottom: auto;
     font-size: 80px;
-    -unity-font-style: bold;
+    align-self: center;
+    -unity-font-style: normal;
+    top: 555px;
     color: rgb(255, 222, 165);
-    background-color: rgb(188, 188, 188);
     border-top-width: 5px;
     border-right-width: 5px;
     border-bottom-width: 5px;
     border-left-width: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
+    background-color: rgb(188, 188, 188);
     border-left-color: rgb(67, 61, 61);
     border-right-color: rgb(67, 61, 61);
     border-top-color: rgb(67, 61, 61);

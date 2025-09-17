@@ -1,0 +1,29 @@
+.score {
+    align-self: flex-start;
+    position: absolute;
+    font-size: 66px;
+    color: rgb(45, 255, 124);
+    -unity-font-definition: url("project://database/Assets/Fonts/MotleyForces.ttf?fileID=12800000&guid=f8bddbd5d1b3b3b408e2cfdc14299f7f&type=3#MotleyForces");
+    -unity-text-outline-width: 5px;
+    letter-spacing: 5px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+    word-spacing: 5px;
+}
+
+.highscore {
+    align-self: flex-end;
+    position: absolute;
+    font-size: 66px;
+    margin-right: 0;
+    width: auto;
+    padding-right: 0;
+    color: rgb(255, 207, 61);
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    -unity-font-definition: url("project://database/Assets/Fonts/MotleyForces.ttf?fileID=12800000&guid=f8bddbd5d1b3b3b408e2cfdc14299f7f&type=3#MotleyForces");
+    -unity-text-outline-width: 5px;
+    letter-spacing: 5px;
+    word-spacing: 5px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+}

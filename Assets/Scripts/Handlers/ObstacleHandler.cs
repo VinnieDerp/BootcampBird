@@ -33,8 +33,9 @@ public class ObstacleHandler : MonoBehaviour
             SpawnObstacles(1);
         }
 
-        foreach (GameObject obstacle in spawnedObstacles)
+        for (int i = spawnedObstacles.Count - 1; i >= 0; i--)
         {
+            GameObject obstacle = spawnedObstacles[i];
             obstacle.transform.position -= new Vector3(0, 0, obstacleSpeed * Time.deltaTime);
             if (obstacle.transform.position.z < -obstacle.transform.localScale.z)
             {
@@ -62,10 +63,10 @@ public class ObstacleHandler : MonoBehaviour
         }
     }
 
-    void RemoveObstacle(GameObject obstacle)
+    public void RemoveObstacle(GameObject obstacle)
     {
+        _gameHandler._score += 8;
         spawnedObstacles.Remove(obstacle);
         Destroy(obstacle);
     }
-
 }

@@ -119,6 +119,71 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &64397075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 64397077}
+  - component: {fileID: 64397076}
+  - component: {fileID: 64397078}
+  m_Layer: 5
+  m_Name: GameOver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &64397076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64397075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 7ce14b9aecc8c304eb3506f5ebcb01fb, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 1a7d6e668fee63d4b9d35b3dff877b67, type: 3}
+  m_SortingOrder: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+--- !u!4 &64397077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64397075}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &64397078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64397075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe02b94e120c4b74f96cfb588b100ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameHandler: {fileID: 233834474}
 --- !u!1 &158796327
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 233834473}
   - component: {fileID: 233834474}
+  - component: {fileID: 233834475}
   m_Layer: 0
   m_Name: GameHandler
   m_TagString: Untagged
@@ -272,8 +338,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca1a817d71fa2547afac0ccc885646e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _score: 0
+  _gameOverHandler: {fileID: 64397078}
+  _obstacleHandler: {fileID: 0}
+  _uiDocument: {fileID: 233834475}
   _highScore: 0
+  _score: 0
+--- !u!114 &233834475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233834472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 7ce14b9aecc8c304eb3506f5ebcb01fb, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 83df9809ea934774394a38d4e4f30182, type: 3}
+  m_SortingOrder: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameHandler: {fileID: 233834474}
+  _gameOverHandler: {fileID: 64397078}
 --- !u!1 &1756328234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,10 +1463,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29eb28e78506204f8c9ee82022b308c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obstacleSpawner: {fileID: 1659412833}
+  _gameHandler: {fileID: 233834474}
   jumpSpeed: 10
   movementSpeed: 25
-  obstacleSpawner: {fileID: 1659412833}
-  gameHandler: {fileID: 233834474}
 --- !u!135 &2130214104
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1438,3 +1527,4 @@ SceneRoots:
   - {fileID: 1446564605}
   - {fileID: 1247755757}
   - {fileID: 1678318325}
+  - {fileID: 64397077}

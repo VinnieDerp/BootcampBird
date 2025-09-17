@@ -5,11 +5,13 @@ public class MainMenuHandler : MonoBehaviour
 {
     [SerializeField]
     private GameHandler _gameHandler;
+    [SerializeField]
+    private GameOverHandler _gameOverHandler;
     private UIDocument _uiDocument;
     private Button _startButton;
     private Label _highScoreLabel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
         _uiDocument = GetComponent<UIDocument>();
 
@@ -18,6 +20,8 @@ public class MainMenuHandler : MonoBehaviour
 
         _highScoreLabel = _uiDocument.rootVisualElement.Q("HighScore") as Label;
         _highScoreLabel.text += PlayerPrefs.GetInt("HighScore", 0).ToString();
+
+        _gameOverHandler.gameObject.SetActive(false);
     }
 
     void OnDisable()

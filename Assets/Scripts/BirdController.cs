@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 public class BirdMovement : MonoBehaviour
 {
     [SerializeField]
-    private ObstacleHandler obstacleSpawner;
+    private ObstacleHandler _obstacleSpawner;
     [SerializeField]
-    private GameHandler gameHandler;
+    private GameHandler _gameHandler;
     [SerializeField]
     private float jumpSpeed;
     [SerializeField]
@@ -44,17 +44,17 @@ public class BirdMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            obstacleSpawner.enabled = false;
+            _obstacleSpawner.enabled = false;
             enabled = false;
             allowJump = false;
         }
 
         else if (other.gameObject.CompareTag("Ground"))
         {
-            obstacleSpawner.enabled = false;
+            _obstacleSpawner.enabled = false;
             enabled = false;
             rb.isKinematic = true;
-            gameHandler.Reset();
+            _gameHandler.EndGame();
         }
     }
 }
