@@ -10,6 +10,7 @@ public class GameOverHandler : MonoBehaviour
     private Button _restartButton;
     private Label _scoreLabel;
     private Label _highScoreLabel;
+    private Label _gameOverLabel;
 
     void OnEnable()
     {
@@ -24,6 +25,9 @@ public class GameOverHandler : MonoBehaviour
 
         _highScoreLabel = _uiDocument.rootVisualElement.Q("HighScore") as Label;
         _highScoreLabel.text = "HighScore: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
+
+        _gameOverLabel = _uiDocument.rootVisualElement.Q("GameOver") as Label;
+        _gameOverLabel.text = "Game Over!";
     }
 
     void OnDisable()

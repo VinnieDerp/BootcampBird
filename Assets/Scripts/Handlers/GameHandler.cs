@@ -5,8 +5,6 @@ public class GameHandler : MonoBehaviour
 {
     [SerializeField]
     private GameOverHandler _gameOverHandler;
-    [SerializeField]
-    private ObstacleHandler _obstacleHandler;
     public UIDocument _uiDocument;
     private Label _scoreLabel;
     private Label _highScoreLabel;
