@@ -1,15 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class BirdMovement : MonoBehaviour
 {
-    public float jumpSpeed;
-    public float movementSpeed;
+    [SerializeField]
+    private ObstacleHandler obstacleSpawner;
+    [SerializeField]
+    private GameHandler gameHandler;
+    [SerializeField]
+    private float jumpSpeed;
+    [SerializeField]
+    private float movementSpeed;
     private Rigidbody rb;
     private Vector3 movement;
-    public ObstacleSpawner obstacleSpawner;
-    public GameHandler gameHandler;
     private bool allowJump;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

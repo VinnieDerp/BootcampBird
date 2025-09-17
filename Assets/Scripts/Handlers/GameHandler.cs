@@ -1,24 +1,21 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
+    public int _score;
+    public int _highScore;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         Time.timeScale = 0;
-
-        Debug.Log("Press Space to Start");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && Time.timeScale == 0)
-        {
-            Time.timeScale = 1;
-        }
+
     }
 
     public void Reset()

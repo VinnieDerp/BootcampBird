@@ -1,11 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleSpawner : MonoBehaviour
+public class ObstacleHandler : MonoBehaviour
 {
-    public GameObject obstaclePrefab;
-    public float obstacleSpeed;
-    public float timerLength;
+    [SerializeField]
+    private GameObject _obstaclePrefab;
+    [SerializeField]
+    private GameHandler _gameHandler;
+    [SerializeField]
+    private float obstacleSpeed;
+    [SerializeField]
+    private float timerLength;
     private float timer;
     private List<GameObject> spawnedObstacles = new List<GameObject>();
 
@@ -31,7 +36,7 @@ public class ObstacleSpawner : MonoBehaviour
         foreach (GameObject obstacle in spawnedObstacles)
         {
             obstacle.transform.position -= new Vector3(0, 0, obstacleSpeed * Time.deltaTime);
-            if (obstacle.transform.position.z < -1)
+            if (obstacle.transform.position.z < -obstacle.transform.localScale.z)
             {
                 RemoveObstacle(obstacle);
             }
@@ -48,7 +53,7 @@ public class ObstacleSpawner : MonoBehaviour
                 if (j == randomGap) continue;
 
                 Vector3 spawnPosition = new Vector3(j / 3 * 3 - 3f, j % 3 * 3 - 3f, transform.position.z - i * timerLength * obstacleSpeed);
-                GameObject spawnedObstacle = Instantiate(obstaclePrefab, spawnPosition, transform.rotation, transform);
+                GameObject spawnedObstacle = Instantiate(_obstaclePrefab, spawnPosition, transform.rotation, transform);
                 spawnedObstacles.Add(spawnedObstacle);
                 Debug.Log("Obstacle spawned");
                 timer = 0;
