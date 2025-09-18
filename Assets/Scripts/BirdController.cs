@@ -9,12 +9,15 @@ public class BirdMovement : MonoBehaviour
     [SerializeField]    private float jumpSpeed;
     [SerializeField]    private float movementSpeed;
     private Rigidbody rb;
+    private Animation anim;
     private Vector3 movement;
     private bool allowJump;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animation>();
+        anim.Play();
 
         allowJump = true;
     }
