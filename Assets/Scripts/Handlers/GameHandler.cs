@@ -34,7 +34,7 @@ public class GameHandler : MonoBehaviour
     {
         if (Time.timeScale == 0) return;
 
-        if (_score > _highScore)
+        else if (_score > _highScore)
         {
             _highScore = _score;
             if (_playHighScoreSound)
